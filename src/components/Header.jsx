@@ -10,8 +10,6 @@ const Header = () => {
 
     const navigate = useNavigate();
     const dispatch = useDispatch();
-    const movies = useSelector((store) => store.movies.nowPlayingMovies);
-    console.log(movies);
     const userData = useSelector((store) => store.user);
     useEffect(() => {
 

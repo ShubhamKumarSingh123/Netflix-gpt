@@ -5,17 +5,20 @@ import { API_OPTIONS } from '../utils/constants';
 import { addNowPlayingMovies } from '../redux/movieSlice';
 import useNowPlayingMovies from '../hooks/useNowPlayingMovies';
 import MainContainer from './MainContainer';
+import SecondaryContainer from './SecondaryContainer';
+import usePopularMovies from '../hooks/usePopularMovies';
 
 const Browse = () => {
 
     useNowPlayingMovies();
+    usePopularMovies();
     return (
         <div>
             <Header />
-            <>
+            <div className='w-screen'>
                 <MainContainer />
-                {/* <SecondaryContainer /> */}
-            </>
+                <SecondaryContainer />
+            </div>
 
         </div>
     )
