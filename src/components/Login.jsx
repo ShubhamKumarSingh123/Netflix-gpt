@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react'
 import Header from './Header'
-import { BG_URL } from '../utils/constants'
+import { BG_URL, USER_AVATAR } from '../utils/constants'
 import { checkValidData } from '../utils/validate';
 import { auth } from '../utils/firebase';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from 'firebase/auth';
@@ -30,7 +30,7 @@ const Login = () => {
                 .then((userCredential) => {
                     const user = userCredential.user;
                     updateProfile(auth.currentUser, {
-                        displayName: name.current.value, photoURL: "https://png.pngtree.com/png-clipart/20220604/ourmid/pngtree-gradient-circle-text-box-prmotion-sale-banner-png-image_4852602.png"
+                        displayName: name.current.value, photoURL: USER_AVATAR
                     }).then(() => {
                         const { uid, email, displayName, photoURL } = auth.currentUser;
                         dispatch(addUser({ uid: uid, email: email, displayName: displayName, photoURL: photoURL }))
